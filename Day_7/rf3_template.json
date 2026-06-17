@@ -1,0 +1,13 @@
+{
+    "name": "binder_1zg4_DESIGNNAME",
+    "components": [
+        {
+            "seq": "BINDER_SEQUENCE_HERE",
+            "chain_id": "A"
+        },
+        {
+            "path": "inputs/1zg4_target.cif"
+        }
+    ],
+    "template_selection": ["B"]
+}
