@@ -58,7 +58,7 @@ def make_sub_script(
 
     if env:
         lines += [
-            "source /dtu/projects/dbl/foundry/miniforge3/etc/profile.d/conda.sh",
+            "source /dtu/blackhole/00/c27666/miniforge3/etc/profile.d/conda.sh",
             f'conda activate "{env}"',
             "",
         ]
