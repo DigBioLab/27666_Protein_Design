@@ -25,16 +25,19 @@
 ##BSUB -N
 
 # --- activate the course environment (same two lines as Day 1) ---
-source /dtu/blackhole/00/c27666/miniforge/bin/activate
+source /dtu/blackhole/00/c27666/miniforge3/bin/activate
 conda activate protein-design
 
 # --- (optional) Weights & Biases: uncomment and set your key to log live curves ---
 # export WANDB_API_KEY=...
 
+# --- show the full Python traceback on any Hydra job failure (debugging) ---
+export HYDRA_FULL_ERROR=1
+
 # --- paths ---
 # Run this script FROM the foundry repo root. DATA is the folder you made in Exercise 4,
 # containing both af2_distillation_facebook.parquet and monomer.json. EDIT this path.
-DATA="$HOME/single_structure_data"
+DATA="$PWD/single_structure_data"   # foundry repo root holds single_structure_data/
 LOGS="$PWD/logs"
 
 # --- launch training ---

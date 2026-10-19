@@ -38,8 +38,11 @@ datasets:
   crop_size: 128                    # >= structure length (Top7 ~92) so it is never cropped
   max_atoms_in_crop: 1536
   train:
-    pdb:
-      probability: 0.0              # turn OFF the (unavailable) PDB datasets
+    # Set pdb to null (not probability 0): the loader instantiates every train dataset
+    # regardless of probability, so probability:0 would still try to read the unavailable
+    # interfaces_df.parquet. A null dataset is explicitly skipped (see
+    # recursively_instantiate_datasets_and_samplers).
+    pdb: null                       # remove the (unavailable) PDB datasets entirely
     monomer_distillation:
       probability: 1.0              # train only on our single structure
       # The monomer config sets `b_factor_min: 70` — a pLDDT threshold meant for AF2 models.
